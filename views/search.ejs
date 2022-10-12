@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0921</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>       
+
+
+    <%- include('./nav.html') %>  
+   
+    <h1 class="title-page">./views/search.ejs</h1>
+
+      <br><br>
+
+      <!-- 👉🦄c66 -->
+       <div>
+        <h2>mongodb search index</h2>
+        <!-- id="search-input", id="search" -->
+        <input type="text" id="search-input">
+        <button id="search" class="myBtn">search</button>
+      </div>
+      
+   
+      <br>
+      <section>
+          <h2>🍀ig_posts[0].title</h2>
+         
+          <!-- 🍀c34 -->         
+          <br><br>
+          <h2>🍀title(제목) 검색하면, 정확히게 일치하는 오브젝트가 검색됨</h2>
+        
+     
+
+          <% if (ig_posts) { %>
+           
+            <%    for (let i = 0; i < ig_posts.length; i++) {   %>  
+                <div class="list">
+                  <h2>id: <%= ig_posts[i]._id %></h2>
+                  <h2> title : <%= ig_posts[i].title %></h2>
+                  <p>date: <%= ig_posts[i].date %></p> 
+                  <p>desciption: <%= ig_posts[i].desc %></p> 
+                    
+                  <!-- 🍀c42 -->
+                  <button class="myBtn delete" data-id="<%= ig_posts[i]._id %>">Delete</button>
+            
+                   <!-- 🍀c48 href="http://localhost:3000/detail/<%= ig_posts[i]._id %>"-->
+                   
+                  <a class="myBtn detail"  data-id="<%= ig_posts[i]._id %>" href="/detail/<%= ig_posts[i]._id %>">Detail page</a>
+                  
+                </div>
+              <%  }  %>  
+
+          <% } %>
+      
+      </section>
+
+    <!-- 🦄🦄c42,44,46, AJAX로 DELETE 요청하기 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $('.delete').click((e)=>{           
+
+            // 🍀44
+            $.ajax({
+            method: "DELETE",
+            url: "/delete",
+            data: {_id: e.target.dataset.id}
+            
+            }).done(function() {
+            
+            $(this).parent('div').fadeOut();
+            location.reload();
+            
+            console.log('ig delete success - list.js')
+            }).fail(function (jqXHR, textStatus) {                  //👉c46-40)
+
+            console.log('c44, delete-fail')
+            console.log( "Request failed: " + textStatus );   
+            });
+        });
+
+        //🦄🦄c66
+        $('#search').click(function () {
+    
+            
+            var ig_search_input값 = $('#search-input').val()
+
+            window.location.replace(`/search?value=${ig_search_input값}`)        
+        })
+    </script>
+</body>
+</html>

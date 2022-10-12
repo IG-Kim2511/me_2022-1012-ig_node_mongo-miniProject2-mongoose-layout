@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0921</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>       
+ 
+    <%- include('./nav.html') %>
+
+    <h1 class="title-page">/views/mypage_62.ejs  </h1>
+
+    <p>your ID: <%= ig_mypage유저정보.id %>   </p>
+
+    <button class="myBtn delete">log out</button>
+   
+
+    <script>
+    $('.delete').click((e)=>{  
+        // 🍀44
+        $.ajax({
+        method: "DELETE",
+        url: "/logout",
+        data: {_id: e.target.dataset.id}
+        
+        }).done(function() {
+        
+        $(this).parent('div').fadeOut();
+        location.reload();
+
+        console.log('ig delete success - list.js')
+        }).fail(function (jqXHR, textStatus) {                  //👉c46-40)
+
+        console.log('c44, delete-fail')
+        console.log( "Request failed: " + textStatus );   
+        });
+    });
+
+    </script>
+    
+</body>
+</html>

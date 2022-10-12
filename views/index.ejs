@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= meta_title %></title>
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body>       
+
+  
+    <!-- 🍀c50 include, 
+      ejs include는 comment에 있는 코드도 읽어버림. 
+      조심하자
+    -->
+    <%- include('./nav.html') %>
+
+    <h1 class="title-page">/views/index.ejs : home </h1>
+   
+    
+    <section class="home">
+      <ul class="home-tools">            
+ 
+        <li class="tool"><a href="/">home</a></li>
+        <li class="tool"><a href="/write">write</a></li>    
+        <li class="tool"><a href="/list">list</a></li>    
+  
+        <li class="tool"><a href="/login">login</a></li>
+        <li class="tool"><a href="/register">register</a></li>      
+        <li class="tool"><a href="/mypage">mypage</a></li>
+
+      </ul>    
+    </section>
+ 
+</body>
+</html>

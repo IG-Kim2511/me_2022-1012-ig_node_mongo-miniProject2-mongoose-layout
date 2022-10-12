@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    
+        
+    <%- include('./nav.html') %>
+    <h1 class="title-page">/views/update-id.ejs  </h1>
+
+    <h4>id: <%= ig_post._id %> </h4>
+    <h4>Title: <%= ig_post.title %> </h4>
+    <h4>Date:  <%= ig_post.date %></h4>
+    
+ 
+    <!-- 🦄c54 -->
+    <!--  🍀method="POST" action="/resource?_method=PUT" -->
+    <!--  🍀method="POST" action="/resource?_method=DELETE" -->
+    <form  method="POST" action="/update-id?_method=PUT">
+    
+      <div class="form-group">
+        <!-- <label>_id정보..몰래 보냄, style="display: none;" 추가 </label> -->
+
+           <!-- name="ig_id" value="" style="display:none; -->
+        <input type="text" name="ig_id" value="<%= ig_post._id %>" style="display:none;" />
+
+        <br>
+        <label>Title: </label>   
+        <!-- value  -->
+        <input type="text" name="ig_title" value="<%= ig_post.title %>"/>
+
+        <br>
+        <label>Date: </label>
+
+        <!-- 🥒c52 value="" -->
+        <input type="text" name="ig_date" value="<%= ig_post.date %>"/>
+
+        <br>
+        <label>Desc: </label>
+
+        <!-- 🥒c52 value="" -->
+        <input type="text" name="ig_desc" value="<%= ig_post.desc %>"/>
+      </div>
+
+      <!--c54) 
+      type="submit" button클릭하면, name을 가진 input정보를 서버로 전송해줌        
+      type="reset" button을 클릭하면 입력된 input들이 모두 초기화된다.       -->
+      <button type="submit" class="myBtn">Submit</button>
+  </form>
+    
+</body>
+</html>

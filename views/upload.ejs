@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+   <%- include('nav.html') %>
+
+   <div>
+    <h4>upload page</h4>
+
+      <!-- 🍉 enctype="multipart/form-data" -->
+    <form action="/upload" method="POST" enctype="multipart/form-data" >
+
+        <!-- 🍉 name="ig_uploadInput"-->
+        <input type="file" name="ig_uploadInput">
+
+        <!-- 🍉type="submit" -->
+        <button type="submit" class="myBtn">submit</button>
+    </form>
+   </div>
+
+   <br><br><br><br><br><br>
+
+   <div>
+    <!-- 🥒c78-40-c  -->
+    <h3>-40 API만들기....img태그에 적용결과 (test_c78.jpg업로드했음..)</h3>
+    <img src="/public_c50/image_c78/test_c78.jpg" alt="">
+   </div>
+
+
+</body>
+</html>

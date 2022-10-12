@@ -1,0 +1,47 @@
+
+<!--🦄c50,  👉detail.ejs -->
+<!-- 
+  🍀ejs include 문법 (= react components)
+  
+  views폴더에 만듬
+
+  만들때: html형식  (ejs X)
+  
+  사용할때 : ejs형식에서만 사용 가능함 👉detail.ejs
+    
+  🍀html... meta code없어도 정상작동함
+-->
+
+<nav class="navbar">
+  <div class="navbar__logo">
+    <i class="fas fa-kiwi-bird"></i>
+    
+  </div>
+  <div class="navbar__menu">           
+    
+    <!-- 🍀href="/"만 넣어도 정상 작동함 
+        href="/"
+        href="http://localhost:3000" 
+        href="http://localhost:3000/write" 
+    -->
+    <ul>            
+      <li><a href="/">home</a></li>
+      <li><a href="/list">list</a></li>    
+      <li><a href="/write">write</a></li>    
+
+      <li><a href="/login">login</a></li>
+      <li><a href="/register">register</a></li>      
+      <li><a href="/mypage">mypage</a></li>
+    </ul>    
+ 
+
+  </div>
+  <div class="navbar__icons">
+    <li><i class="fab fa-odnoklassniki-square"></i></li>
+    <li><i class="fas fa-skiing"></i></li>
+  </div>
+
+  <a href="#" class="footer">
+    <i class="fas fa-align-justify"></i>
+  </a>
+</nav>
