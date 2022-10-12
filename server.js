@@ -18,7 +18,8 @@ let MongoClient = require('mongodb').MongoClient;
 
  // c32) ejs
 // let ejs = require('ejs'); 
-app.set('view engine','ejs')
+
+app.set('layout', 'layouts/layout');
 
 // c50)
 app.use(express.static('public'))
@@ -41,6 +42,10 @@ const session = require('express-session');
 app.use(session({ secret: 'ig123', resave: true, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+// express-ejs-layouts
+// var expressLayouts = require('express-ejs-layouts');
+// app.use(expressLayouts);
 
 
 
@@ -442,8 +447,7 @@ MongoClient.connect(url, function(mongo_err, client) {
     // 👉🍀c18, listen 
     app.listen(process.env.PORT || 8080 , function () {
         console.log((`bgMagenta`).bgMagenta)
-        console.log(`ig node server gogo, port: ${process.env.PORT}`.rainbow);
-        
+        console.log(`ig node server gogo, port: ${process.env.PORT}`.rainbow);        
     }); 
 
     //🍀 client.close()있으면 post가 안됨..왜인지는 모름
